@@ -10,7 +10,7 @@ import { Task } from "./task.model";
       <input #taskDescription>
       <label>Add a new Task number</label>
       <input #taskId>
-      <button (click)="createButtonClicked(taskDescripton.value, taskId.value); taskDescription.value=''; taskId.value='';">Create Task</button>
+      <button (click)="createButtonClicked(taskDescription.value, taskId.value); taskDescription.value=''; taskId.value='';">Create Task</button>
     </div>
   `
 })
@@ -20,5 +20,6 @@ export class NewTaskComponent {
   createButtonClicked (description: string, id: number) {
     var newTask: Task = new Task (description, id);
     this.newTaskSender.emit(newTask);
+    console.log(newTask);
   }
 }
